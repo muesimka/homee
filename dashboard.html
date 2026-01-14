@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления - Smart House</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-house-door-fill"></i> Smart House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Возможности</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Управление</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-light btn-sm" href="login.html">Войти</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Мой Дом</h2>
+            <div class="text-muted"><i class="bi bi-calendar-event"></i> <span id="currentDate">Сегодня</span></div>
+        </div>
+
+        <!-- Status Overview -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm bg-primary text-white h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="bi bi-thermometer-half fs-1 me-3"></i>
+                        <div>
+                            <h6 class="mb-0">Средняя темп.</h6>
+                            <h3 class="mb-0">23°C</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm bg-success text-white h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="bi bi-lightning-charge-fill fs-1 me-3"></i>
+                        <div>
+                            <h6 class="mb-0">Энергия</h6>
+                            <h3 class="mb-0">1.2 кВт</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm bg-warning text-dark h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="bi bi-droplet-fill fs-1 me-3"></i>
+                        <div>
+                            <h6 class="mb-0">Влажность</h6>
+                            <h3 class="mb-0">45%</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm bg-danger text-white h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="bi bi-shield-lock-fill fs-1 me-3"></i>
+                        <div>
+                            <h6 class="mb-0">Охрана</h6>
+                            <h3 class="mb-0">Активна</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Controls -->
+        <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-living-tab" data-bs-toggle="pill" data-bs-target="#pills-living" type="button">Гостиная</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-kitchen-tab" data-bs-toggle="pill" data-bs-target="#pills-kitchen" type="button">Кухня</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-bedroom-tab" data-bs-toggle="pill" data-bs-target="#pills-bedroom" type="button">Спальня</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            
+            <!-- Living Room Tab -->
+            <div class="tab-pane fade show active" id="pills-living">
+                <div class="row g-4">
+                    <!-- Light Control -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-4">Основной свет</h5>
+                                <i id="icon-light-living" class="bi bi-lightbulb-fill fs-1 mb-3 text-success"></i>
+                                <div class="mb-3">
+                                    <label class="form-label">Яркость: <span id="lightDisplay">80%</span></label>
+                                    <input type="range" class="form-range" id="lightRange" value="80">
+                                </div>
+                                <button class="btn btn-success active w-100 toggle-switch" id="btn-light-living" onclick="toggleState('btn-light-living', 'icon-light-living', 'bi-lightbulb-fill', 'bi-lightbulb')">Вкл</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TV Control -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-4">Телевизор</h5>
+                                <i id="icon-tv" class="bi bi-tv fs-1 mb-3 text-muted"></i>
+                                <p class="text-muted">Samsung Smart TV</p>
+                                <button class="btn btn-outline-secondary w-100 toggle-switch" id="btn-tv" onclick="toggleState('btn-tv', 'icon-tv', 'bi-tv-fill', 'bi-tv')">Выкл</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AC Control -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-4">Кондиционер</h5>
+                                <i class="bi bi-fan fs-1 mb-3 text-primary"></i>
+                                <div class="mb-3">
+                                    <label class="form-label">Температура: <span id="tempDisplay">22°C</span></label>
+                                    <input type="range" class="form-range" id="tempRange" min="16" max="30" value="22">
+                                </div>
+                                <div class="btn-group w-100">
+                                    <button class="btn btn-outline-primary active">Cool</button>
+                                    <button class="btn btn-outline-warning">Heat</button>
+                                    <button class="btn btn-outline-secondary">Fan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kitchen Tab -->
+            <div class="tab-pane fade" id="pills-kitchen">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-4">Свет над столом</h5>
+                                <i id="icon-light-kitchen" class="bi bi-lightbulb fs-1 mb-3 text-muted"></i>
+                                <button class="btn btn-outline-secondary w-100 toggle-switch" id="btn-light-kitchen" onclick="toggleState('btn-light-kitchen', 'icon-light-kitchen', 'bi-lightbulb-fill', 'bi-lightbulb')">Выкл</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-4">Кофемашина</h5>
+                                <i id="icon-coffee" class="bi bi-cup-hot fs-1 mb-3 text-muted"></i>
+                                <button class="btn btn-outline-secondary w-100 toggle-switch" id="btn-coffee" onclick="toggleState('btn-coffee', 'icon-coffee', 'bi-cup-hot-fill', 'bi-cup-hot')">Выкл</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bedroom Tab -->
+            <div class="tab-pane fade" id="pills-bedroom">
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> Сценарий "Сон" активируется автоматически в 23:00.
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm border-0 h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title mb-4">Ночник</h5>
+                                <i id="icon-night" class="bi bi-lamp fs-1 mb-3 text-muted"></i>
+                                <button class="btn btn-outline-secondary w-100 toggle-switch" id="btn-night" onclick="toggleState('btn-night', 'icon-night', 'bi-lamp-fill', 'bi-lamp')">Выкл</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

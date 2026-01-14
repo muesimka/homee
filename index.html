@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart House - Умный Дом</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1558002038-1091a16617ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-house-door-fill"></i> Smart House</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Возможности</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Управление</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Контакты</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-light btn-sm" href="login.html">Войти</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold">Будущее вашего комфорта</h1>
+            <p class="lead mb-4">Полный контроль над вашим домом в одном приложении. Безопасность, экономия и уют.</p>
+            <a href="dashboard.html" class="btn btn-primary btn-lg px-4 gap-3">Попробовать демо</a>
+            <a href="features.html" class="btn btn-outline-light btn-lg px-4">Узнать больше</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Почему Smart House?</h2>
+                <p class="text-muted">Технологии, которые делают жизнь проще</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="mb-3"><i class="bi bi-lightbulb feature-icon"></i></div>
+                        <h5 class="card-title">Умное освещение</h5>
+                        <p class="card-text">Настраивайте сценарии освещения, меняйте яркость и цвет со смартфона.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="mb-3"><i class="bi bi-shield-check feature-icon"></i></div>
+                        <h5 class="card-title">Безопасность</h5>
+                        <p class="card-text">Камеры, датчики движения и умные замки под вашим полным контролем.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="mb-3"><i class="bi bi-thermometer-half feature-icon"></i></div>
+                        <h5 class="card-title">Климат-контроль</h5>
+                        <p class="card-text">Поддерживайте идеальную температуру и влажность в каждой комнате.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Mockup Section -->
+    <section id="dashboard" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Панель управления</h2>
+                <p class="text-muted">Интерактивная демонстрация интерфейса</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+                            <h5 class="mb-0">Гостиная</h5>
+                            <span class="badge bg-success">В сети</span>
+                        </div>
+                        <div class="card-body">
+                            <!-- Lighting -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-lightbulb-fill text-warning fs-4 me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Основной свет</h6>
+                                        <small class="text-muted">Яркость: 80%</small>
+                                    </div>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" checked style="width: 3em; height: 1.5em;">
+                                </div>
+                            </div>
+                            <input type="range" class="form-range mb-4" id="lightRange">
+
+                            <hr>
+
+                            <!-- Temperature -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-thermometer-sun text-danger fs-4 me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Температура</h6>
+                                        <small class="text-muted">Текущая: 22°C</small>
+                                    </div>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-outline-secondary">-</button>
+                                    <button type="button" class="btn btn-outline-secondary">24°C</button>
+                                    <button type="button" class="btn btn-outline-secondary">+</button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <!-- Security -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-door-closed text-primary fs-4 me-3"></i>
+                                    <div>
+                                        <h6 class="mb-0">Входная дверь</h6>
+                                        <small class="text-muted">Закрыто</small>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-danger btn-sm"><i class="bi bi-lock-fill"></i> Блокировать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h5>Smart House</h5>
+                    <p class="text-muted small">Инновационные решения для вашего дома.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">О нас</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Поддержка</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Контакты</a></li>
+                    </ul>
+                    <p class="small text-muted mb-0">&copy; 2023 Smart House Inc.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
